@@ -1,11 +1,19 @@
 --- dwm.c
 +++ dwm.c
-@@ -205,6 +205,8 @@ static void setup(void);
- static void seturgent(Client *c, int urg);
- static void showhide(Client *c);
- static void sigchld(int unused);
-+static void sighup(int unused);
-+static void sigterm(int unused);
- static void spawn(const Arg *arg);
- static void tag(const Arg *arg);
- static void tagmon(const Arg *arg);
+@@ -1278,6 +1307,16 @@ propertynotify(XEvent *e)
+ void
+ quit(const Arg *arg)
+ {
++	size_t i;
++
++	/* kill child processes */
++	for (i = 0; i < autostart_len; i++) {
++		if (0 < autostart_pids[i]) {
++			kill(autostart_pids[i], SIGTERM);
++			waitpid(autostart_pids[i], NULL, 0);
++		}
++	}
++
+ 	running = 0;
+ }
+ 

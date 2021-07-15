@@ -62,6 +62,13 @@ static const char *colors[][3]      = {
 	[SchemeUrgent]=	 { col_white, col_red,    col_red },
 };
 
+static const char *const autostart[] = {
+	"dwmblocks", NULL,
+	
+    "compton",NULL,
+    NULL/* terminate */
+};
+
 /* tagging */
 static const char *tags[] = { "", "", "", "", "", "", "", "磊", "" };
 
