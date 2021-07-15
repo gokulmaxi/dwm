@@ -66,6 +66,7 @@ static const char *const autostart[] = {
 	"dwmblocks", NULL,
 	
     "compton",NULL,
+    "fehbg", NULL,
     NULL/* terminate */
 };
 
