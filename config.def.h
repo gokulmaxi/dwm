@@ -45,6 +45,7 @@ static const char *const autostart[] = {
 	
     "compton",NULL,
     "fehbg", NULL,
+    "batsignal" , NULL,
     NULL/* terminate */
 };
 
@@ -60,6 +61,8 @@ static const Rule rules[] = {
 	{ "Gimp",    NULL,     NULL,           0,         1,          0,           0,        -1 },
 	{ "Firefox", NULL,     NULL,           2,         0,          0,          -1,        -1 },
 	{ "kitty",      NULL,     NULL,        0,         0,          1,           0,        -1 },
+	{ "rviz",      NULL,     NULL,         0,          0,           1,           -1,        -1 },
+	{ "gazebo",      NULL,     NULL,         0,          0,           1,           -1,        -1 },
 	{ NULL,		  "spterm",		NULL,	SPTAG(0),     1,	      0,          -1,        -1 },
 	{ NULL,		  "spcalc",		NULL,	SPTAG(1),     1,	      0,	      -1,        -1 },
 	{ NULL,		  "spmusic",	NULL,	SPTAG(2),     0,	      0,	      -1,        -1 },
