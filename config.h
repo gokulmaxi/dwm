@@ -53,13 +53,14 @@ static const char *const autostart[] = {
 #define MOD2KEY Mod4Mask
 /* tagging */
 static const char *tags[] = {"", "", "", "", "", "", "", "磊", ""};
-
+static const char *defaulttagapps[] = { "kitty","firefox","code", "nautilus", 
+         "discord", NULL, NULL, NULL, NULL };
 static const Rule rules[] = {
     /* xprop(1):
      *	WM_CLASS(STRING) = instance, class
      *	WM_NAME(STRING) = title
      */
-    /* class     instance  title           tags mask  isfloating  isterminal
+    /* class     instance  title  tags mask  isfloating  isterminal
        noswallow  monitor */
     {"Gimp", NULL, NULL, 0, 1, 0, 0, -1},
     {"Firefox", NULL, NULL, 2, 0, 0, -1, -1},
@@ -67,7 +68,6 @@ static const Rule rules[] = {
     {"rviz", NULL, NULL, 0, 0, 1, -1, -1},
     {"gazebo", NULL, NULL, 0, 0, 1, -1, -1},
     {"brave-browser", NULL, NULL, 2, 0, 0, -1, -1},
-    {"discord", NULL, NULL, 5, 0, 0, -1, -1},
     {NULL, "spterm", NULL, SPTAG(0), 1, 0, -1, -1},
     {NULL, "spcalc", NULL, SPTAG(1), 1, 0, -1, -1},
     {NULL, "spmusic", NULL, SPTAG(2), 0, 0, -1, -1},
@@ -115,6 +115,7 @@ static Key keys[] = {
     /* modifier                     key        function        argument */
     {MODKEY, XK_d, spawn, {.v = dmenucmd}},
     {MODKEY, XK_Return, spawn, {.v = termcmd}},
+{ MODKEY,                       XK_s,      spawndefault,   {0} },
     {MODKEY, XK_b, togglebar, {0}},
     {MODKEY, XK_j, focusstack, {.i = +1}},
     {MODKEY, XK_k, focusstack, {.i = -1}},
